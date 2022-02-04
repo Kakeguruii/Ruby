@@ -34,3 +34,12 @@ end
 # else
 #   puts"Скоро им станет ruby!"
 # end
+
+#task1.4
+puts"Введите команду ruby:"
+r=STDIN.gets.chomp
+puts eval(r)
+
+puts"Введите команду OS:"
+os=STDIN.gets.chomp
+puts system(os)
