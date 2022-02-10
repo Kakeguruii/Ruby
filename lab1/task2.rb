@@ -27,16 +27,16 @@
 #   return prod
 # end
 #
-# def max_num(x)
-#   max = x % 10
-#   while (x != 0)
-#     if (max < x % 10)
-#       max = x % 10
-#     end
-#     x /= 10
-#   end
-#   return max
-# end
+def max_num(x)
+  max = x % 10
+  while (x != 0)
+    if (max < x % 10)
+      max = x % 10
+    end
+    x /= 10
+  end
+  return max
+end
 #
 # def min_num(x)
 #   min = x % 10
@@ -62,16 +62,16 @@
 
 #task2.3.1 var8
 
-# def nod(x,y)
-#   while(x != y)
-#     if(x>y)
-#       x-=y
-#     else
-#       y-=x
-#     end
-#   end
-#   return x
-# end
+def nod(x,y)
+  while(x != y)
+    if(x>y)
+      x-=y
+    else
+      y-=x
+    end
+  end
+  return x
+end
 #
 # def coprime(x)
 #   for i in (1..x)
@@ -86,16 +86,37 @@
 # coprime(number)
 
 #task2.3.2 var8
-def sum_num_del3(x)
-  sum = 0
-  while (x != 0)
-    if(((x % 10) % 3)==0)
-      sum += x % 10
+# def sum_num_del3(x)
+#   sum = 0
+#   while (x != 0)
+#     if(((x % 10) % 3)==0)
+#       sum += x % 10
+#     end
+#     x /= 10
+#   end
+#   return sum
+# end
+#
+# number = eval(ARGV[0])
+# print("Сумма цифр числа кратных 3: ", sum_num_del3(number))
+
+def coprime3(x,y)
+    if nod(x,y)==1
+      return true
     end
-    x /= 10
+    return false
   end
-  return sum
+
+def method3(x,y)
+  for i in (1..x)
+    if x%i == 0
+      if coprime3(i,y)
+        print(i, " ")
+      end
+    end
+  end
 end
 
 number = eval(ARGV[0])
-print("Сумма цифр числа кратных 3: ", sum_num_del3(number))
+print "Третий метод: "
+method3(number,max_num(number))
