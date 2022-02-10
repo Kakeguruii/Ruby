@@ -62,25 +62,40 @@
 
 #task2.3.1 var8
 
-def nod(x,y)
-  while(x != y)
-    if(x>y)
-      x-=y
-    else
-      y-=x
-    end
-  end
-  return x
-end
+# def nod(x,y)
+#   while(x != y)
+#     if(x>y)
+#       x-=y
+#     else
+#       y-=x
+#     end
+#   end
+#   return x
+# end
+#
+# def coprime(x)
+#   for i in (1..x)
+#     if(nod(x,i)==1)
+#       print(i," ")
+#     end
+#   end
+# end
+#
+# number = eval(ARGV[0])
+# print "Взаимнопростые числа к числу: "
+# coprime(number)
 
-def coprime(x)
-  for i in (1..x)
-    if(nod(x,i)==1)
-      print(i," ")
+#task2.3.2 var8
+def sum_num_del3(x)
+  sum = 0
+  while (x != 0)
+    if(((x % 10) % 3)==0)
+      sum += x % 10
     end
+    x /= 10
   end
+  return sum
 end
 
 number = eval(ARGV[0])
-print "Взаимнопростые числа к числу: "
-coprime(number)
+print("Сумма цифр числа кратных 3: ", sum_num_del3(number))
