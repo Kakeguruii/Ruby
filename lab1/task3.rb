@@ -145,3 +145,13 @@ def task32(arr)
   puts("Максимальный элемент в промежутке: ", max)
   puts("Количество максимальных эл-тов:", newarr.tally[max])
 end
+
+#task3.4.46
+def task46(arr)
+  plus=[]
+  minus=[]
+  arr.each{|i| if i>=0 then plus.append(i) end}
+  arr.each{|i| if i<0 then minus.append(i) end}
+  puts("Положительные числа: ",plus)
+  puts("Отрицательные числа: ",minus)
+end
