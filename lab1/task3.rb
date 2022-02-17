@@ -128,3 +128,8 @@ def task8(arr)
   arr2[first_min[0]] = arr2.max+1
   puts first_min << arr2.index(arr2.min)
 end
+
+#task3.4.20
+def task20(arr)
+  puts (arr.min..arr.max).to_a - arr
+end
