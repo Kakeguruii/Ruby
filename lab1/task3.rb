@@ -1,4 +1,4 @@
-#task3.1
+# #task3.1
 def min_in_list(arr)
   min = arr[0]
   for el in arr
@@ -35,19 +35,87 @@ def prod_in_list(arr)
   end
   return prod
 end
+#
+# array = Array.new
+# print "Введите количество элементов: "
+# n = eval(STDIN.gets.chomp)
+# puts "Введите элементы"
+# for i in 0..n-1
+#   array.append(eval(STDIN.gets.chomp))
+# end
+# min = min_in_list(array)
+# max = max_in_list(array)
+# sum = sum_in_list(array)
+# prod = prod_in_list(array)
+# print("Минимальный элемент в массиве: ", min , "\n")
+# print("Максимальный элемент в массиве: " , max , "\n")
+# print("Сумма элементов в массиве: " , sum , "\n")
+# print("Произведение элементов в массиве: " , prod , "\n")
 
-array = Array.new
-print "Введите количество элементов: "
-n = eval(STDIN.gets.chomp)
-puts "Введите элементы"
-for i in 0..n-1
-  array.append(eval(STDIN.gets.chomp))
+#task3.2
+# задание 3_2
+def get_array()
+  array = Array.new
+  print "Введите размер массива:"
+  n = eval(STDIN.gets.chomp)
+  puts "\n Введите элементы массива:"
+  for i in 0..n-1
+   array.append(eval(STDIN.gets.chomp))
+  end
+  return array
 end
-min = min_in_list(array)
-max = max_in_list(array)
-sum = sum_in_list(array)
-prod = prod_in_list(array)
-print("Минимальный элемент в массиве: ", min , "\n")
-print("Максимальный элемент в массиве: " , max , "\n")
-print("Сумма элементов в массиве: " , sum , "\n")
-print("Произведение элементов в массиве: " , prod , "\n")
+
+
+def list_from_file(name_file)
+  File.open(name_file+".txt","r") do |file|
+    list = Array.new
+    n = eval(file.readline())
+    for i in 0..n-1
+      list.append(eval(file.readline()))
+    end
+    return list
+  end
+end
+
+
+def args_choice()
+  function = eval(ARGV[0])
+  type = eval(ARGV[1])
+  file = ARGV[2]
+
+  # 1 с клавы, 2 с файла
+  if type == 1
+    array = get_array()
+  end
+  if type == 2
+    array = list_from_file(file)
+  end
+
+  case function
+  when 1
+    result = min_in_list(array)
+  when 2
+    result = max_in_list(array)
+  when 3
+    result = sum_in_list(array)
+  when 4
+    result = prod_in_list(array)
+  else
+    result = 'Неверная функция'
+  end
+  return(print("Результат: " , result))
+end
+
+puts "Выберите нужную функцию:
+1. Мин эл-т списка
+2. Макс эл-т списка
+3. Сумма эл-тов списка
+4. Произведение эл-тов списка"
+
+puts "Выберите нужный вариант:
+1. Ввод списка с клавиатуры
+2. Взять список из файла (как 3-й аргумент укажите адрес файла)
+\n"
+
+#file_name = list
+puts args_choice()
