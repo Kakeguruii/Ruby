@@ -133,3 +133,15 @@ end
 def task20(arr)
   puts (arr.min..arr.max).to_a - arr
 end
+
+#task3.4.32
+def task32(arr)
+  print "Введите a: "
+  a = eval(STDIN.gets.chomp)
+  print "Введите b: "
+  b = eval(STDIN.gets.chomp)
+  newarr = arr[a..b]
+  max= newarr.max
+  puts("Максимальный элемент в промежутке: ", max)
+  puts("Количество максимальных эл-тов:", newarr.tally[max])
+end
